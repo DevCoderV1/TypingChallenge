@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+}
+
+.game_mode {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  background-color: black;
+}
+.game_title {
+  text-align: center;
+  color: white;
+}
+.game_title h1 {
+  padding: 15px;
+}
+
+.displaytext,
+.user_input {
+  border: 1px solid black;
+  margin: 15px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.displaytext p {
+  font-size: 48px;
+}
+.user_input input {
+  font-size: 42px;
+  outline: none;
+  border: none;
+}
+.menu_button {
+  text-align: center;
+}
+
+.menu_button button {
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 15px;
+  font-size: 18px;
+  background-color: red;
+  cursor: pointer;
+  border: none;
+  transition: 0.4s ease-in-out;
+  color: white;
+}

@@ -1,0 +1,43 @@
+.frontpage_container {
+  min-height: 100vh;
+  background-color: rgb(46, 43, 43);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.frontpage_title {
+  text-align: center;
+  border: 1px solid white;
+}
+.frontpage_title h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 4em;
+  padding: 10px;
+}
+
+.mode_btn {
+  text-align: center;
+}
+
+.mode_btn button {
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 15px;
+  font-size: 18px;
+  background-color: red;
+  cursor: pointer;
+  border: none;
+  transition: 0.4s ease-in-out;
+  color: white;
+}
+.mode_btn button .link-tag {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+.mode_btn button:hover {
+  background-color: white;
+  color: black;
+}
