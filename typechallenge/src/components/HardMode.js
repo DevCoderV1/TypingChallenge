@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function HardMode() {
-  const easyText = "Please";
+  const Text =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget purus massa. Ut pulvinar sapien eu leo feugiat accumsan. Mauris et laoreet nisl, id varius metus. Proin scelerisque justo risus, sed varius mi dapibus eu. Ut dapibus risus sapien, id fringilla ligula scelerisque a. Donec nibh urna, vestibulum et iaculis sit amet, pellentesque at eros. Quisque id facilisis turpis. Pellentesque neque nibh, sollicitudin scelerisque semper eget, dignissim eget nibh. Phasellus faucibus malesuada pharetra. Aliquam a lacinia diam. Cras eu mi vestibulum, malesuada massa ut, pellentesque orci. Aliquam non nunc lacus. Suspendisse a bibendum nulla. Sed non tempor erat.";
   const [mytext, SetText] = useState("");
   const [time, settime] = useState(0);
   const [hide, sethide] = useState(true);
-  const NewText = easyText.split("");
-  const userText = mytext.split("");
   const [status, setStatus] = useState(false);
-  const [message, setmessage] = useState("hello");
+  const [message, setmessage] = useState("");
 
   //runs the timer
   useEffect(() => {
@@ -23,21 +22,18 @@ function HardMode() {
 
   //check if text is valid and same as displaytext
   const checktext = () => {
+    const NewText = Text.split("");
+    const userText = mytext.split("");
     let count = 0;
     sethide(false);
-    if (userText.length !== NewText.length) {
-      console.log("false");
-    } else if (userText.length === NewText.length) {
-      for (let x = 0; x <= NewText.length; x++) {
-        if (userText[x] === NewText[x]) {
-          count = count + 1;
-          console.log("true");
-        } else {
-          console.log("false");
-        }
+    for (let x = 0; x < NewText.length; x++) {
+      if (userText[x] === NewText[x]) {
+        count = count + 1;
       }
     }
-    setmessage(`You have ${count} / ${NewText.length} text correct`);
+    setmessage(
+      `Your time: ${time} seconds. You have ${count} out of ${NewText.length} character correct !`
+    );
   };
   const restartapp = () => {
     window.location.reload();
@@ -64,10 +60,9 @@ function HardMode() {
         </div>
       </div>
       <div className="displaytext">
-        <p>{easyText}</p>
+        <p>{Text}</p>
       </div>
       <div className="result">
-        <div className={hide ? "timer" : "hidetime"}>{time}</div>
         <div className={hide ? "hideboard" : "scoreboard"}>{message}</div>
       </div>
       <div className="user_input">

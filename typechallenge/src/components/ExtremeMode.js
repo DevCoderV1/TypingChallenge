@@ -2,15 +2,13 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function ExtremeMode() {
-  const easyText =
-    "&R&^^T&BY(*Y(HI(&T&*DY*)Y*(@)(U)(Ujdqjweujd1j--9UJokkq-jd--j-j-jd-1j-dk1-k0dk-01jd-2j1d-1j2-dj1-m1---I_(I_)I_)Jd-qk0";
+  const Text =
+    "Duis id mi id velit vestibulum cursus. Integer tincidunt nisi felis, eu consectetur nulla dignissim id. Quisque gravida  condimentum egestas. Sed ex magna, fringilla vitae orci a, egestas elementum erat. Vestibulum @!semper imper^diet mi, vel (laoreet) libero semper eget. Mauris  sit   amet feugiat diam. Vivamus sed mattis ipsum. Aliquam venenatis efficitur? leo, et placerat ligula lacinia non!. Nam tristique tortor eu arcu  interdum  auctor.";
   const [mytext, SetText] = useState("");
   const [time, settime] = useState(0);
   const [hide, sethide] = useState(true);
-  const NewText = easyText.split("");
-  const userText = mytext.split("");
   const [status, setStatus] = useState(false);
-  const [message, setmessage] = useState("hello");
+  const [message, setmessage] = useState("");
 
   //runs the timer
   useEffect(() => {
@@ -24,22 +22,26 @@ function ExtremeMode() {
 
   //check if text is valid and same as displaytext
   const checktext = () => {
-    let count = 0;
+    const NewText = Text.split("");
+    const userText = mytext.split("");
     sethide(false);
-    if (userText.length !== NewText.length) {
-      console.log("false");
-    } else if (userText.length === NewText.length) {
-      for (let x = 0; x <= NewText.length; x++) {
-        if (userText[x] === NewText[x]) {
-          count = count + 1;
-          console.log("true");
-        } else {
-          console.log("false");
-        }
+    let count = 0;
+    for (let x = 0; x < NewText.length; x++) {
+      if (userText[x] === NewText[x]) {
+        count = count + 1;
       }
     }
-    setmessage(`You have ${count} / ${NewText.length} text correct`);
+    setmessage(
+      `Your time: ${time} seconds. You have ${count} out of ${NewText.length} character correct !`
+    );
   };
+  //DisplayInput
+
+  const DisplayInput = (e) => {
+    SetText(e.target.value);
+    setStatus(true);
+  };
+  //refresh the web browser
   const restartapp = () => {
     window.location.reload();
   };
@@ -65,33 +67,20 @@ function ExtremeMode() {
         </div>
       </div>
       <div className="displaytext">
-        <p>{easyText}</p>
+        <p>{Text}</p>
       </div>
       <div className="result">
-        <div className={hide ? "timer" : "hidetime"}>{time}</div>
         <div className={hide ? "hideboard" : "scoreboard"}>{message}</div>
       </div>
       <div className="user_input">
-        <textarea
-          onChange={(e) => {
-            SetText(e.target.value);
-            console.log(mytext);
-            setStatus(true);
-          }}
+        <input
+          onChange={DisplayInput}
           type="text"
           autoFocus
-          name="myinput"
-          placeholder="Type your text here..."
-          onKeyUp={(e) => {
-            let numletter = e.target.value.length;
-            let numhidden = "";
-            for (let x = 0; x < numletter; x++) {
-              numhidden += "*";
-            }
-            e.target.value = numhidden;
-          }}
+          placeholder="Type here to begin..."
         />
       </div>
+
       <div className="submit_btn">
         <button style={hide ? show : noshow} onClick={checktext}>
           Submit Text

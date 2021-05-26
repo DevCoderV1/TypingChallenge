@@ -41,22 +41,26 @@
 }
 
 .displaytext p {
-  font-size: 48px;
+  font-size: 32px;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   text-align: center;
+  width: 80%;
+  font-family: "Times New Roman", Times, serif;
 }
-.user_input textarea {
+.user_input textarea,
+.user_input input {
   width: 60%;
   height: 250px;
-  font-size: 42px;
+  font-size: 32px;
   outline: none;
   border: none;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
-  overflow-wrap: break-word;
+  overflow: hidden;
 }
 .menu_button,
 .submit_btn {
@@ -69,37 +73,26 @@
   outline: none;
   border-radius: 0.5rem;
   padding: 10px;
-  font-size: 18px;
+  font-size: 16px;
   background-color: red;
   cursor: pointer;
   border: none;
   transition: 0.4s ease-in-out;
   color: white;
   margin: auto;
+  font-weight: bold;
 }
 .result {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.timer {
-  color: white;
-  font-size: 24px;
-  text-align: center;
-  margin: 10px;
-}
-.hidetime {
-  color: white;
-  font-size: 24px;
-  text-align: center;
-  margin: 10px;
-  display: none;
-}
 .scoreboard {
   color: white;
   font-size: 24px;
   text-align: center;
   margin: 10px;
+  color: rgb(53, 175, 53);
 }
 .hidescoreboard {
   display: none;
