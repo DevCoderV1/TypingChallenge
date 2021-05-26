@@ -32,7 +32,7 @@ function EasyMode() {
       }
     }
     setmessage(
-      `Your time: ${time} seconds. You have ${count} out of ${NewText.length} character correct !`
+      `You took: ${time} seconds. You have ${count} out of ${NewText.length} character correct !`
     );
   };
   const restartapp = () => {

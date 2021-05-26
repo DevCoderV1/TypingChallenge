@@ -13,13 +13,19 @@ function FrontPage() {
         </Link>
       </div>
       <div className="mode_btn">
+        <Link to="/NormalMode">
+          <button>Normal Mode</button>
+        </Link>
+      </div>
+      <div className="mode_btn">
         <Link to="/HardMode">
           <button>Hard Mode</button>
         </Link>
       </div>
       <div className="mode_btn">
-        <Link to="/ExtremeMode">
+        <Link to="/">
           <button>Extreme Mode</button>
+          <p style={{ color: "white", padding: "10px" }}>Coming Soon!!</p>
         </Link>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import frontpage from "./components/Frontpage";
 import easy from "./components/EasyMode";
+import normal from "./components/NormalMode";
 import hard from "./components/HardMode";
-import extreme from "./components/ExtremeMode";
 import "./App.css";
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={frontpage} />
         <Route exact path="/EasyMode" component={easy} />
+        <Route exact path="/NormalMode" component={normal} />
         <Route exact path="/HardMode" component={hard} />
-        <Route exact path="/ExtremeMode" component={extreme} />
       </Switch>
     </Router>
   );

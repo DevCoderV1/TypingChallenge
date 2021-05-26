@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function ExtremeMode() {
+function NormalMode() {
   const Text =
-    "Duis id mi id velit vestibulum cursus. Integer tincidunt nisi felis, eu consectetur nulla dignissim id. Quisque gravida  condimentum egestas. Sed ex magna, fringilla vitae orci a, egestas elementum erat. Vestibulum @!semper imper^diet mi, vel (laoreet) libero semper eget. Mauris  sit   amet feugiat diam. Vivamus sed mattis ipsum. Aliquam venenatis efficitur? leo, et placerat ligula lacinia non!. Nam tristique tortor eu arcu  interdum  auctor.";
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget purus massa. Ut pulvinar sapien eu leo feugiat accumsan. Mauris et laoreet nisl, id varius metus. Proin scelerisque justo risus, sed varius mi dapibus eu. Ut dapibus risus sapien, id fringilla ligula scelerisque a. Donec nibh urna, vestibulum et iaculis sit amet, pellentesque at eros. Quisque id facilisis turpis. Pellentesque neque nibh, sollicitudin scelerisque semper eget, dignissim eget nibh. Phasellus faucibus malesuada pharetra. Aliquam a lacinia diam. Cras eu mi vestibulum, malesuada massa ut, pellentesque orci. Aliquam non nunc lacus. Suspendisse a bibendum nulla. Sed non tempor erat.";
   const [mytext, SetText] = useState("");
   const [time, settime] = useState(0);
   const [hide, sethide] = useState(true);
@@ -24,24 +24,17 @@ function ExtremeMode() {
   const checktext = () => {
     const NewText = Text.split("");
     const userText = mytext.split("");
-    sethide(false);
     let count = 0;
+    sethide(false);
     for (let x = 0; x < NewText.length; x++) {
       if (userText[x] === NewText[x]) {
         count = count + 1;
       }
     }
     setmessage(
-      `Your time: ${time} seconds. You have ${count} out of ${NewText.length} character correct !`
+      `You took: ${time} seconds. You have ${count} out of ${NewText.length} character correct !`
     );
   };
-  //DisplayInput
-
-  const DisplayInput = (e) => {
-    SetText(e.target.value);
-    setStatus(true);
-  };
-  //refresh the web browser
   const restartapp = () => {
     window.location.reload();
   };
@@ -58,7 +51,7 @@ function ExtremeMode() {
     <div className="game_mode">
       <div className="nav_bar">
         <div className="game_title">
-          <h1>Extreme Mode</h1>
+          <h1>Normal Mode</h1>
         </div>
         <div className="menu_button">
           <Link to="/">
@@ -73,14 +66,18 @@ function ExtremeMode() {
         <div className={hide ? "hideboard" : "scoreboard"}>{message}</div>
       </div>
       <div className="user_input">
-        <input
-          onChange={DisplayInput}
+        <textarea
+          onChange={(e) => {
+            SetText(e.target.value);
+            console.log(mytext);
+            setStatus(true);
+          }}
           type="text"
           autoFocus
-          placeholder="Type here to begin..."
+          name="myinput"
+          placeholder="Type your text here..."
         />
       </div>
-
       <div className="submit_btn">
         <button style={hide ? show : noshow} onClick={checktext}>
           Submit Text
@@ -93,4 +90,4 @@ function ExtremeMode() {
   );
 }
 
-export default ExtremeMode;
+export default NormalMode;
